@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.LawArticlesChapters3">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="LightPink">
+                <ImageButton Source="back.png"
+                             WidthRequest="30"
+                             HeightRequest="30"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="Start"></ImageButton>
+            </StackLayout>
+            <StackLayout>
+                <ListView ItemsSource="{Binding ListChapter3}" 
+                      HasUnevenRows="True"
+                      SeparatorVisibility="None"
+                      SeparatorColor="LightPink"
+                      IsPullToRefreshEnabled="True"
+                      RefreshControlColor="Red">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Frame CornerRadius="10" HasShadow="True">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout VerticalOptions="Center">
+                                                <Label Text="{Binding LawChapterName}" FontSize="Large"></Label>
+                                                <ListView ItemsSource="{Binding LawSections4}">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <ViewCell>
+                                                                <Grid Padding="10">
+                                                                    <Frame CornerRadius="10" HasShadow="True">
+                                                                        <StackLayout Orientation="Horizontal">
+                                                                            <StackLayout>
+                                                                                <!-- Hiển thị dữ liệu của mục con -->
+                                                                                <Label Text="{Binding LawSectionsName}" />
+                                                                            </StackLayout>
+                                                                            <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                                                                <ImageButton Source="edit.png"
+                                                                                 WidthRequest="25"
+                                                                                 HeightRequest="25"
+                                                                                 BackgroundColor="Transparent"></ImageButton>
+                                                                                <ImageButton Source="delete.png"
+                                                                                 WidthRequest="30"
+                                                                                 HeightRequest="30"
+                                                                                 BackgroundColor="Transparent"></ImageButton>
+                                                                            </StackLayout>
+                                                                        </StackLayout>
+                                                                    </Frame>
+                                                                </Grid>
+                                                            </ViewCell>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </StackLayout>
+                                            <StackLayout VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                                <ImageButton Source="edit.png"
+                                                         WidthRequest="25"
+                                                         HeightRequest="25"
+                                                         BackgroundColor="Transparent"></ImageButton>
+                                                <ImageButton Source="delete.png"
+                                                         WidthRequest="30"
+                                                         HeightRequest="30"
+                                                         BackgroundColor="Transparent"></ImageButton>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout>
+                            <Button Text="Thêm" FontSize="Large" HorizontalOptions="EndAndExpand" BackgroundColor="LightPink"></Button>
+                        </StackLayout>
+                    </ListView.Footer>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
